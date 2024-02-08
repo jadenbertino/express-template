@@ -1,0 +1,3 @@
+export GOOGLE_APPLICATION_CREDENTIALS=secret/GOOGLE_APPLICATION_CREDENTIALS.json
+export ENVIRONMENT=staging
+ts-node src/index.ts

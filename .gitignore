@@ -1,0 +1,14 @@
+# Directories
+**/node_modules/
+**/secret/
+**/dist/
+**/dev/
+
+# Environment
+.env*
+!.env*.example
+!.env*.yaml
+!.env.public
+
+# Misc Files
+.npmrc

@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    // Strict mode
+    "strict": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+
+    // No unused code
+    "noUnusedLocals": true,
+    "allowUnreachableCode": false,
+    "noUnusedParameters": true,
+    "allowUnusedLabels": false,
+
+    // No implicit code
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+
+    // Other Type Checks
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noFallthroughCasesInSwitch": true,
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Compile
+    "target": "es6",
+    "module": "ES2020", // set package.json to "type": "module"
+    "moduleResolution": "node",
+    "removeComments": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "lib": ["dom", "es2017"],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "jsx": "react-jsx"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"],
+
+  // if using ts-node
+  "ts-node": {
+    "esm": true
+  }
+}
