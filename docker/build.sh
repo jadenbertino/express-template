@@ -5,6 +5,9 @@ set -e
 npmrc_file_path="./.npmrc"
 bash ./docker/utils/validate_file.sh $npmrc_file_path
 
+# Verify that package.json files are in sync
+npm install
+
 # Compile Typescript
 echo "Compiling Typescript"
 rm -rf ./dist
