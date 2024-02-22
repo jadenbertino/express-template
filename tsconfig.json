@@ -29,7 +29,7 @@
     "forceConsistentCasingInFileNames": true,
 
     // Compile
-    "target": "es6",
+    "target": "es2017",
     "module": "NodeNext", // set package.json to "type": "module"
     "moduleResolution": "NodeNext",
     "removeComments": true,
