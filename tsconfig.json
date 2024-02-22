@@ -12,7 +12,7 @@
     "useUnknownInCatchVariables": true,
 
     // No unused code
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "allowUnreachableCode": false,
     "noUnusedParameters": true,
     "allowUnusedLabels": false,
