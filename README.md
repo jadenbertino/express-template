@@ -7,5 +7,4 @@ You can download this template with the following commands, this will create a f
 wget https://github.com/jadenbertino/express-template/archive/refs/heads/main.zip
 unzip main.zip
 rm main.zip
-cd express-template
 ```
