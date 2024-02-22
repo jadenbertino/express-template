@@ -1,3 +1,6 @@
-export GOOGLE_APPLICATION_CREDENTIALS=secret/GOOGLE_APPLICATION_CREDENTIALS.json
 export ENVIRONMENT=staging
-ts-node src/index.ts
+
+# npm i -g dotenv-cli
+# https://www.npmjs.com/package/dotenv-cli
+# Avoid loading .env file from source code because that would you require you to copy the .env file into the docker image
+dotenv -e env/.env -- ts-node src/index.ts
