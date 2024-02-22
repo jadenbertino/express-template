@@ -30,8 +30,8 @@
 
     // Compile
     "target": "es6",
-    "module": "ES2020", // set package.json to "type": "module"
-    "moduleResolution": "node",
+    "module": "NodeNext", // set package.json to "type": "module"
+    "moduleResolution": "NodeNext",
     "removeComments": true,
     "esModuleInterop": true,
     "sourceMap": true,

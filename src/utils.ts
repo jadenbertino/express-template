@@ -1,4 +1,3 @@
-import { NextFunction, Request, Response } from 'express'
 import w from 'winston'
 
 export class CustomError extends Error {
@@ -30,16 +29,6 @@ export class CustomError extends Error {
     }
     errorString += `, stack: ${this.stack}`
     return errorString
-  }
-}
-
-export function catchAsyncErrors(asyncFunction: Function) {
-  return async (req: Request, res: Response, next: NextFunction) => {
-    try {
-      await asyncFunction(req, res)
-    } catch (err) {
-      next(err)
-    }
   }
 }
 

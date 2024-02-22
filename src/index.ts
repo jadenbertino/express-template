@@ -1,8 +1,10 @@
+import { ENV } from './env.js'
+import { logger } from './utils.js'
+
+// Imports - Middleware
 import cors from 'cors'
 import express from 'express'
-import { ENV } from './env.js'
-import handleErrors from './error.js'
-import { catchAsyncErrors, logger } from './utils.js'
+import { handleErrors, catchAsyncErrors } from './error.js'
 
 // Imports - Route Handlers
 import helloWorld from './routes/hello-world.js'
