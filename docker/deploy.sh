@@ -4,8 +4,8 @@ set -e
 # Load environment variables
 sh ./docker/utils/validate_env.sh
 . ./docker/config.sh
-# if you only have a single .env file then change the line below
-env_file=./env/.env.$ENVIRONMENT
+# if you have multiple .env files then do .env.$ENVIRONMENT
+env_file=./env/.env.
 . ./docker/utils/get_gcloud_env_args.sh $env_file
 echo "env args: $gcloud_env_args"
 

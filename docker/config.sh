@@ -1,3 +1,3 @@
 VERSION=1.0.0
-SERVICE_NAME=database-api
+SERVICE_NAME=PLZ-SET-SERVICE-NAME
 DOCKER_TAG=us-central1-docker.pkg.dev/ai-video-creation/$SERVICE_NAME/$VERSION
