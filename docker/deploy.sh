@@ -10,6 +10,7 @@ env_file=./env/.env.
 echo "env args: $gcloud_env_args"
 
 # Authenticate to the artifact registry
+gcloud services enable artifactregistry.googleapis.com
 gcloud auth configure-docker us-central1-docker.pkg.dev
 # gcloud artifacts repositories create $SERVICE_NAME --repository-format=docker --location=us-central1
 
