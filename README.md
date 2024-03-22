@@ -7,6 +7,8 @@ unzip main.zip
 rm main.zip
 ```
 
+If you don't have `unzip` then do `sudo apt-get update && sudo apt-get install unzip`
+
 ## Updates
 [For latest updates, see the notion page](https://www.notion.so/jadenbertino/Docker-CI-CD-Best-Practices-Scripts-eff92e4f8ca648ad8baa78b1319fbd0a?pvs=4)
 
