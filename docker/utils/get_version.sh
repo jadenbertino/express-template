@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if file containing the version exists
-SOURCE_FILE="changelog.md"
+SOURCE_FILE="CHANGELOG.md"
 if [ ! -f "$SOURCE_FILE" ]; then
     echo "$SOURCE_FILE not found"
     exit 1
