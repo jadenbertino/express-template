@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e 
 
-# Verify .npmrc file exists
-npmrc_file_path="./.npmrc"
-bash ./docker/utils/validate_file.sh $npmrc_file_path
-
 # Verify that package.json files are in sync
 npm install
 
@@ -14,6 +10,7 @@ rm -rf ./dist
 tsc
 
 # Dockerize
+npmrc_file_path="$HOME/.npmrc"
 . ./docker/config.sh
 docker build \
   -t $DOCKER_TAG \
