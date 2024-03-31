@@ -13,7 +13,7 @@ echo "env args: $gcloud_env_args"
 gcloud services enable artifactregistry.googleapis.com
 gcloud auth configure-docker us-central1-docker.pkg.dev
 
-# TODO: delete this line after the first run
+# TODO: Comment out this line after the first run
 gcloud artifacts repositories create $SERVICE_NAME --repository-format=docker --location=us-central1
 
 # Push the image to the artifact registry
