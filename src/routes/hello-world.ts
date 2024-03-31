@@ -2,10 +2,11 @@ import { Request, Response } from 'express'
 import { z } from 'zod'
 import { CustomError } from '../utils.js'
 
+const RequestSchema = z.object({ })
+
 async function helloWorld(req: Request, res: Response) {
   // Validate Request
-  const requestSchema = z.object({ })
-  const requestValidation = requestSchema.safeParse(req.body)
+  const requestValidation = RequestSchema.safeParse(req.body)
   if (!requestValidation.success) {
     throw new CustomError({
       statusCode: 400,
