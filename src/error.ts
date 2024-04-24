@@ -5,7 +5,7 @@ async function handleErrors(err: Error, _req: Request, res: Response, _next: Nex
   const errorString = err instanceof CustomError ? err.toString() : JSON.stringify(err, Object.getOwnPropertyNames(err))
   const errorStatus = err instanceof CustomError ? err.statusCode : 500
   logger.error(errorString)
-  res.status(errorStatus).send(errorString)
+  res.status(errorStatus).json({ error: errorString })
 }
 
 function catchAsyncErrors(asyncFunction: Function) {
