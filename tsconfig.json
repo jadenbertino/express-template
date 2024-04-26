@@ -38,7 +38,8 @@
     "lib": ["dom", "es2017"],
     "outDir": "./dist",
     "rootDir": "./src",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "skipLibCheck": true
   },
   "include": ["src"],
   "exclude": ["node_modules"],
