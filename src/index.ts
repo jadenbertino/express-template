@@ -4,7 +4,7 @@ import { logger } from './utils.js'
 // Imports - Middleware
 import cors from 'cors'
 import express from 'express'
-import { handleErrors, catchAsyncErrors } from './error.js'
+import { catchAsyncErrors, handleErrors } from './error.js'
 
 // Imports - Route Handlers
 import helloWorld from './routes/hello-world.js'
@@ -22,6 +22,20 @@ app.get('/', catchAsyncErrors(helloWorld))
 app.use(handleErrors)
 
 // Start The Server
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   logger.info(`App listening on port ${PORT} in ${ENV.ENVIRONMENT} mode.`)
 })
+
+function handleGracefulShutdown(signal: string) {
+  return () => {
+    logger.info(`Received ${signal}. Shutting down gracefully...`)
+    server.close(() => {
+      logger.info('Server shut down successfully.')
+      process.exit(0)
+    })
+  }
+}
+
+// Handle shutdown
+process.on('SIGINT', handleGracefulShutdown('SIGINT'))
+process.on('SIGTERM', handleGracefulShutdown('SIGTERM'))

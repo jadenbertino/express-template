@@ -11,4 +11,4 @@ RUN chmod -R +x ./docker
 COPY dist/ dist/
 
 # Start the app
-CMD npm run start
+CMD ["/bin/bash", "./docker/start.sh"]
