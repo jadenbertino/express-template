@@ -1,6 +1,6 @@
 . ./docker/utils/get_version.sh
 
-SERVICE_NAME=PLZ-SET-SERVICE-NAME
+export SERVICE_NAME=PLZ-SET-SERVICE-NAME
 
 # TODO: Delete this once SERVICE_NAME is set
 # Check if the service name has been set properly
@@ -9,4 +9,8 @@ if [ "$SERVICE_NAME" = "PLZ-SET-SERVICE-NAME" ]; then
     exit 1
 fi
 
-DOCKER_TAG=us-central1-docker.pkg.dev/ai-video-creation/$SERVICE_NAME/$VERSION
+# for gcloud
+export DOCKER_TAG=us-central1-docker.pkg.dev/ai-video-creation/$SERVICE_NAME/$VERSION
+
+# for azure
+export DOCKER_TAG=ossauswest3.azurecr.io/$SERVICE_NAME:$VERSION
