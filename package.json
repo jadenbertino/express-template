@@ -9,7 +9,7 @@
     "start": "bash ./docker/start.sh",
     "build": "bash ./docker/build.sh",
     "test": "bash ./docker/test.sh",
-    "deploy": "bash ./docker/deploy.sh"
+    "deploy": "bash ./docker/deploy-azure.sh"
   },
   "keywords": [],
   "author": "",
