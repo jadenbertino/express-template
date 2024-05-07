@@ -16,3 +16,5 @@ docker build \
   -t $DOCKER_TAG \
   --secret id=npmrc,src=$npmrc_file_path \
   .
+echo ""
+echo "Built image: $DOCKER_TAG"
