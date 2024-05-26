@@ -1,5 +1,3 @@
-import w from 'winston'
-
 export class CustomError extends Error {
   statusCode: number;
   [key: string]: any
@@ -31,15 +29,3 @@ export class CustomError extends Error {
     return errorString
   }
 }
-
-export const logger = w.createLogger({
-  // uses npm log levels by default: 'error', 'warn', 'info', 'verbose', 'debug', 'silly'
-  level: process.env['ENVIRONMENT'] === 'production' ? 'verbose': 'debug',
-  format: w.format.printf(({ level, message, ...metadata }) => {
-    const metadataString = metadata && Object.keys(metadata).length ? JSON.stringify(metadata) : ''
-    return `[${level.toUpperCase()}] ${message} ${metadataString}`
-  }),
-  transports: [
-    new w.transports.Console(),
-  ]
-})

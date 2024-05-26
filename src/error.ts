@@ -1,5 +1,6 @@
-import { Request, Response, NextFunction } from 'express'
-import { CustomError, logger } from './utils.js'
+import { NextFunction, Request, Response } from 'express'
+import { logger } from './logs.js'
+import { CustomError } from './utils.js'
 
 async function handleErrors(err: Error, _req: Request, res: Response, _next: NextFunction) {
   const errorString = err instanceof CustomError ? err.toString() : JSON.stringify(err, Object.getOwnPropertyNames(err))
@@ -18,4 +19,4 @@ function catchAsyncErrors(asyncFunction: Function) {
   }
 }
 
-export { handleErrors, catchAsyncErrors }
+export { catchAsyncErrors, handleErrors }
