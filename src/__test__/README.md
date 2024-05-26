@@ -1,0 +1,3 @@
+- See `jest.config.ts` for configuration
+- Name test files as: `*.test.ts`
+- If you have files that are needed for tests (such as loggers, config, utils, etc), but aren't ran as a test file themself, then name it as: `*.ts`

@@ -9,6 +9,9 @@ env_file=./env/.env
 . ./docker/utils/get_gcloud_env_args.sh $env_file
 echo "env args: $gcloud_env_args"
 
+# Pass all tests (and stop deploy script if any fail)
+npm run jest
+
 # Authenticate to the artifact registry
 gcloud services enable artifactregistry.googleapis.com
 gcloud auth configure-docker us-central1-docker.pkg.dev
