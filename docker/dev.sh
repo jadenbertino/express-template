@@ -1,6 +1,7 @@
 export ENVIRONMENT=staging
 
-# npm i -g dotenv-cli
-# https://www.npmjs.com/package/dotenv-cli
-# Avoid loading .env file from source code because that would you require you to copy the .env file into the docker image
-dotenv -e env/.env -- npx tsx src/index.ts
+if [ "$1" == "--watch" ]; then
+  npx dotenv -e env/.env -- npx tsx watch src/index.ts
+else
+  npx dotenv -e env/.env -- npx tsx src/index.ts
+fi
