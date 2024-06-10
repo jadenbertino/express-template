@@ -1,15 +1,14 @@
-#!/bin/bash
-set -e
+rm -rf dist/__test__/
 
-# Env Vars
-bash ./docker/utils/validate_env.sh
-. ./docker/config.sh
-env_file=./env/.env
-# If you have multiple .env files then do ./env/.env.$ENVIRONMENT
+export ENVIRONMENT=testing
+export GOOGLE_APPLICATION_CREDENTIALS=secret/GOOGLE_APPLICATION_CREDENTIALS.json
+TEST_FILEPATH=$1
+COMMAND="dotenv -e env/.env -- node --experimental-vm-modules node_modules/jest/bin/jest.js"
 
-# Build
-docker run \
-  -p 8080:8080 \
-  -e ENVIRONMENT=$ENVIRONMENT \
-  --env-file $env_file \
-  $DOCKER_TAG
+# Append the test file path if it is not empty
+if [ -n "$TEST_FILEPATH" ]; then
+  echo "Running test file: $TEST_FILEPATH"
+  COMMAND="$COMMAND $TEST_FILEPATH"
+fi
+
+eval $COMMAND
