@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "bash ./docker/dev.sh",
+    "dev:watch": "bash ./docker/dev.sh --watch",
     "start": "bash ./docker/start.sh",
     "build": "bash ./docker/build.sh",
     "container": "bash ./docker/container.sh",

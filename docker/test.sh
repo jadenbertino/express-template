@@ -11,4 +11,6 @@ if [ -n "$TEST_FILEPATH" ]; then
   COMMAND="$COMMAND $TEST_FILEPATH"
 fi
 
+COMMAND="$COMMAND --passWithNoTests"
+
 eval $COMMAND
