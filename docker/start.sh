@@ -1,1 +1,0 @@
-exec node dist/index.js

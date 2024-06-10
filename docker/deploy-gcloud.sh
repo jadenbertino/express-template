@@ -4,10 +4,7 @@ set -e
 # Load environment variables
 sh ./docker/utils/validate_env.sh
 . ./docker/config.sh
-# if you have multiple .env files then do .env.$ENVIRONMENT
-env_file=./env/.env
-. ./docker/utils/get_gcloud_env_args.sh $env_file
-echo "env args: $gcloud_env_args"
+. ./env/.env.$ENVIRONMENT
 
 # Pass all tests (and stop deploy script if any fail)
 npm run jest
@@ -29,4 +26,4 @@ gcloud run deploy $SERVICE_NAME-$ENVIRONMENT \
   --region us-central1 \
   --platform managed \
   --set-env-vars ENVIRONMENT=$ENVIRONMENT \
-  $gcloud_env_args
+  --set-env-vars DOPPLER_TOKEN=$DOPPLER_TOKEN

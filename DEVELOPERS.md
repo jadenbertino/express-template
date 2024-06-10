@@ -2,6 +2,14 @@
 
 This document outlines the Continuous Integration/Continuous Deployment (CI/CD) process for our project. It is intended to provide developers with clear instructions on the workflow to follow for developing, testing, and deploying code.
 
+## Prerequisites
+
+- Doppler: For managing environments and secrets (better than .env files)
+  - Workplace
+  - Project that has `staging` and `production` environments
+  - Service token for each environment
+  - [Doppler CLI Installed](https://docs.doppler.com/docs/cli#installation)
+
 ## CI/CD Workflow
 
 Our CI/CD process is structured to ensure consistent code quality, successful builds, and proper deployments. Please adhere to the following steps:

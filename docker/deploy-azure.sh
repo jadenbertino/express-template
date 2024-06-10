@@ -4,8 +4,7 @@ set -e
 # Env vars
 sh ./docker/utils/validate_env.sh
 . ./docker/config.sh
-env_file=./env/.env
-. ./docker/utils/get_azure_env_args.sh $env_file
+. ./env/.env.$ENVIRONMENT
 
 # Pass all tests (and stop deploy script if any fail)
 npm run jest
@@ -21,4 +20,4 @@ az containerapp update \
   --name $SERVICE_NAME-$ENVIRONMENT \
   --resource-group $ENVIRONMENT \
   --image $DOCKER_TAG \
-  $azure_env_args ENVIRONMENT=$ENVIRONMENT REVISION_TIMESTAMP=$(date +%s)
+  --set-env-vars DOPPLER_TOKEN=$DOPPLER_TOKEN ENVIRONMENT=$ENVIRONMENT REVISION_TIMESTAMP=$(date +%s)

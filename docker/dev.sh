@@ -1,7 +1,10 @@
 export ENVIRONMENT=staging
 
+# Load DOPPLER_TOKEN env var
+. ./env/.env.$ENVIRONMENT
+
 if [ "$1" == "--watch" ]; then
-  npx dotenv -e env/.env -- npx tsx watch src/index.ts
+  doppler run -- npx tsx watch src/index.ts
 else
-  npx dotenv -e env/.env -- npx tsx src/index.ts
+  doppler run -- npx tsx src/index.ts
 fi
