@@ -1,2 +1,2 @@
 1.0.0
-    - Initial release
+    - Describe changes made in each release within this file
