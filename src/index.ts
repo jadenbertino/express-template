@@ -1,6 +1,6 @@
-import { app } from './app.js'
-import { ENV } from './env.js'
-import { logger } from './logs.js'
+import { app } from '@/app.js'
+import { ENV } from '@/env.js'
+import { logger } from '@/logs.js'
 
 const PORT = process.env['PORT'] || 8080
 

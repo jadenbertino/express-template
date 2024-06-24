@@ -7,7 +7,8 @@ npm install
 # Compile Typescript
 echo "Compiling Typescript"
 rm -rf ./dist
-tsc
+npx tsc
+npx tsc-alias
 
 # Dockerize
 npmrc_file_path="$HOME/.npmrc"
