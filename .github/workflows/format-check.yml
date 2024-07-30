@@ -14,4 +14,4 @@ jobs:
     - name: Install Biome
       run: npm install @biomejs/biome
     - name: Check Formatting
-      run: bash ./check-format.sh
+      run: bash ./docker/check-format.sh
