@@ -12,7 +12,7 @@
     "container": "bash ./docker/container.sh",
     "test": "bash ./docker/test.sh",
     "deploy": "bash ./docker/deploy-azure.sh",
-    "check-format": "bash ./docker/check-format.sh"
+    "format": "npx @biomejs/biome format"
   },
   "keywords": [],
   "author": "",
