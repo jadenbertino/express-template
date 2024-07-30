@@ -23,6 +23,7 @@
     "zod": "3.21.4"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "@types/cors": "2.8.17",
     "@types/express": "4.17.21",
     "@types/jest": "29.5.12",

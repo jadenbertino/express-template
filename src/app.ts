@@ -1,7 +1,7 @@
 // Imports - Middleware
+import { catchAsyncErrors, handleErrors } from '@/error.js'
 import cors from 'cors'
 import express from 'express'
-import { catchAsyncErrors, handleErrors } from '@/error.js'
 
 // Imports - Route Handlers
 import helloWorld from '@/routes/hello-world.js'
