@@ -1,7 +1,7 @@
-import { Request, Response } from 'express'
+import type { Request, Response } from 'express'
 import { z } from 'zod'
 
-const RequestSchema = z.object({ })
+const RequestSchema = z.object({})
 
 async function helloWorld(req: Request, res: Response) {
   // Validate Request
@@ -16,7 +16,7 @@ async function helloWorld(req: Request, res: Response) {
     }
   }
   // const body = requestValidation.data
-  
+
   return res.status(200).send('Hello World!')
 }
 
