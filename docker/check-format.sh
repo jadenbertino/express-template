@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Function to check a single file
-check_file() {
-    local file="$1"
-    echo "Checking file: $file"
-    output=$(npx @biomejs/biome format "$file" 2>&1)
+# Function to check a file or directory
+check_item() {
+    local item="$1"
+    echo "Checking: $item"
+    output=$(npx @biomejs/biome format "$item" 2>&1)
     if echo "$output" | grep -q "error"; then
         echo "$output" >> "$error_log"
         return 1
@@ -12,44 +12,41 @@ check_file() {
     return 0
 }
 
-# If no files are provided, check all files in src
+# If no arguments are provided, check the src directory
 if [ $# -eq 0 ]; then
-    echo "No files provided. Checking all files in src directory."
-    files=("src")
+    echo "No arguments provided. Checking the src directory."
+    items=("src")
 else
-    files=("$@")
+    items=("$@")
 fi
 
-echo "Files to be checked:"
-printf '%s\n' "${files[@]}"
+echo "Items to be checked:"
+printf '%s\n' "${items[@]}"
 
 # Create a temporary file for error logging
 error_log=$(mktemp)
 
-# Initialize counter and array for files with errors
-total_files=0
-files_with_errors=()
+# Initialize array for items with errors
+items_with_errors=()
 
-# Iterate through files
-for file in "${files[@]}"; do
-    if [ -f "$file" ]; then
-        ((total_files++))
-        if ! check_file "$file"; then
-            files_with_errors+=("$file")
+# Iterate through items
+for item in "${items[@]}"; do
+    if [ -e "$item" ]; then
+        if ! check_item "$item"; then
+            items_with_errors+=("$item")
         fi
     else
-        echo "Warning: $file is not a valid file and will be skipped."
+        echo "Warning: $item does not exist and will be skipped."
     fi
 done
 
 # Status Message
-echo "Total files checked: $total_files"
-if [ ${#files_with_errors[@]} -gt 0 ]; then
-    echo "Formatting issues were found in the following files:"
+if [ ${#items_with_errors[@]} -gt 0 ]; then
+    echo "Formatting issues were found in the following items:"
     cat "$error_log"
     rm "$error_log"
-    echo "Files with formatting issues:"
-    printf '%s\n' "${files_with_errors[@]}"
+    echo "Items with formatting issues:"
+    printf '%s\n' "${items_with_errors[@]}"
     exit 1
 else
     echo "No formatting issues found."
