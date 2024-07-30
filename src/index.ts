@@ -4,8 +4,7 @@ import { logger } from '@/logs.js'
 
 const PORT = process.env['PORT'] || 8080
 
-const server = app.listen(PORT, () => {
-  logger.info(`App listening on port ${PORT} in ${ENV.ENVIRONMENT} mode.`)
+const server = app.listen(PORT, () => {  logger.info(`App listening on port ${PORT} in ${ENV.ENVIRONMENT} mode.`)
 })
 
 function handleGracefulShutdown(signal: string) {
