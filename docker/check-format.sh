@@ -4,7 +4,7 @@
 check_file() {
     local file="$1"
     echo "Checking file: $file"
-    output=$(npx @biomejs/biome format "$file" --check 2>&1)
+    output=$(npx @biomejs/biome format "$file"2>&1)
     if echo "$output" | grep -q "error"; then
         echo "$output" >> "$error_log"
         return 1
@@ -15,7 +15,7 @@ check_file() {
 # If no files are provided, check all files in src
 if [ $# -eq 0 ]; then
     echo "No files provided. Checking all files in src directory."
-    files=$(find src -type f \( -name "*.js" -o -name "*.ts" -o -name "*.jsx" -o -name "*.tsx" \))
+    files="src"
 else
     files="$@"
 fi
