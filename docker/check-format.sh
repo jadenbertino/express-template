@@ -42,11 +42,7 @@ for file in $files; do
     fi
 done
 
-# Print summary and errors
-echo "Format check complete."
-echo "Total files checked: $total_files"
-echo "Files with formatting issues: $files_with_errors"
-
+# Detailed Summary
 if [ $files_with_errors -gt 0 ]; then
     echo "Formatting issues were found in the following files:"
     cat "$error_log"
@@ -57,3 +53,8 @@ else
     rm "$error_log"
     exit 0
 fi
+
+# Print summary and errors
+echo "Format check complete."
+echo "Total files checked: $total_files"
+echo "Files with formatting issues: $files_with_errors"
