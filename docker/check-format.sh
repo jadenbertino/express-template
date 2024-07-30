@@ -4,7 +4,7 @@
 check_file() {
     local file="$1"
     echo "Checking file: $file"
-    output=$(npx @biomejs/biome format "$file"2>&1)
+    output=$(npx @biomejs/biome format "$file" 2>&1)
     if echo "$output" | grep -q "error"; then
         echo "$output" >> "$error_log"
         return 1
