@@ -1,0 +1,25 @@
+name: Check Formatting
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Install Prettier ONLY
+        run: |
+          rm -f package.json package-lock.json
+          npm init -y
+          npm install prettier --no-save
+
+      - name: Check Formatting
+        run: bash ./scripts/check-format-branch.sh ${{ github.base_ref }}
