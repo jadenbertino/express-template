@@ -6,7 +6,8 @@ import express from 'express'
 // Imports - Route Handlers
 import helloWorld from '@/routes/hello-world.js'
 
-const app = express()
+const app =
+ express()
 
 // Middleware
 app.use(cors())
