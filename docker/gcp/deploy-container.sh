@@ -11,7 +11,9 @@ gcloud services enable artifactregistry.googleapis.com
 gcloud auth configure-docker us-central1-docker.pkg.dev
 
 # Deploy from artifact registry to cloud run
-gcloud run deploy $SERVICE_NAME-$ENVIRONMENT \
+CONTAINER_NAME=$SERVICE_NAME-$ENVIRONMENT
+echo "Deploying container app: $CONTAINER_NAME"
+gcloud run deploy $CONTAINER_NAME \
   --image $DOCKER_TAG \
   --region us-central1 \
   --platform managed \
