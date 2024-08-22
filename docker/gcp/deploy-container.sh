@@ -13,6 +13,7 @@ gcloud auth configure-docker us-central1-docker.pkg.dev
 # Deploy from artifact registry to cloud run
 CONTAINER_NAME=$SERVICE_NAME-$ENVIRONMENT
 echo "Deploying container app: $CONTAINER_NAME"
+# https://cloud.google.com/sdk/gcloud/reference/run/deploy
 gcloud run deploy $CONTAINER_NAME \
   --image $DOCKER_TAG \
   --region us-central1 \
