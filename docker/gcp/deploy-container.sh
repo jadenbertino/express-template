@@ -3,6 +3,7 @@ set -e
 
 # Load environment variables
 sh ./docker/utils/validate_env.sh
+. ./docker/utils/get_version.sh
 . ./docker/config.sh
 . ./env/.env.$ENVIRONMENT
 
@@ -19,4 +20,5 @@ gcloud run deploy $CONTAINER_NAME \
   --region us-central1 \
   --platform managed \
   --set-env-vars ENVIRONMENT=$ENVIRONMENT \
-  --set-env-vars DOPPLER_TOKEN=$DOPPLER_TOKEN
+  --set-env-vars DOPPLER_TOKEN=$DOPPLER_TOKEN \
+  --set-env-vars VERSION=$VERSION

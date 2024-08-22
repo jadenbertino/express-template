@@ -1,6 +1,7 @@
 import { z } from 'zod'
 
 const envVars = {
+  VERSION: z.string(),
   ENVIRONMENT: z.enum(['development', 'staging', 'production']),
   // GOOGLE_APPLICATION_CREDENTIALS: z.string(), // for authenticating to google apis
 }

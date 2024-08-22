@@ -1,3 +1,6 @@
+. ./docker/utils/get_version.sh
+export VERSION=$VERSION
+
 export ENVIRONMENT=staging
 
 # Load DOPPLER_TOKEN env var
