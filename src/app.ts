@@ -11,9 +11,10 @@ const app = express()
 // Middleware
 app.use(cors())
 app.use(express.json())
-app.use(handleErrors)
 
 // Route Handlers
 app.get('/', catchAsyncErrors(helloWorld))
+
+app.use(handleErrors) // must come after all routes
 
 export { app } // call app.listen() in a separate file in case you want to run tests
