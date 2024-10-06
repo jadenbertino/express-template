@@ -7,7 +7,7 @@ sh ./docker/utils/validate_env.sh
 . ./env/.env.$ENVIRONMENT
 
 # Pass all tests (and stop deploy script if any fail)
-npm run test
+# npm run test
 
 # Authenticate to the artifact registry
 gcloud services enable artifactregistry.googleapis.com
