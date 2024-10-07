@@ -17,9 +17,4 @@ if (!environmentValidation.success) {
 
 const ENV = environmentValidation.data
 
-// Only log env var confirmation in non-production environments
-if (ENV.ENVIRONMENT !== 'production') {
-  console.info(`All environment variables are valid! (i.e. ${Object.keys(envVars).join(', ')})`)
-}
-
 export { ENV }
