@@ -1,8 +1,15 @@
 import { z } from 'zod'
 
+const EnvironmentSchema = z.enum([
+  'development',
+  'staging',
+  'production',
+  'testing',
+])
+
 const envVars = {
   VERSION: z.string(),
-  ENVIRONMENT: z.enum(['development', 'staging', 'production']),
+  ENVIRONMENT: EnvironmentSchema,
   // GOOGLE_APPLICATION_CREDENTIALS: z.string(), // for authenticating to google apis
 }
 

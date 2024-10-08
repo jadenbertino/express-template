@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    // Strict mode
     "strict": true,
     "alwaysStrict": true,
     "noImplicitAny": true,
@@ -11,26 +10,22 @@
     "strictPropertyInitialization": true,
     "useUnknownInCatchVariables": true,
 
-    // No unused code
     "noUnusedLocals": false,
     "allowUnreachableCode": false,
     "noUnusedParameters": true,
     "allowUnusedLabels": false,
 
-    // No implicit code
     "noImplicitOverride": true,
     "noImplicitReturns": true,
 
-    // Other Type Checks
     "noUncheckedIndexedAccess": true,
     "noPropertyAccessFromIndexSignature": true,
     "noFallthroughCasesInSwitch": true,
     "exactOptionalPropertyTypes": true,
     "forceConsistentCasingInFileNames": true,
 
-    // Compile
     "target": "es2017",
-    "module": "NodeNext", // set package.json to "type": "module"
+    "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "removeComments": true,
     "esModuleInterop": true,
@@ -40,14 +35,16 @@
     "rootDir": "./src",
     "jsx": "react-jsx",
     "skipLibCheck": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": ["src/*"]
+    },
+    "types": ["@types/jest"]
   },
   "include": ["src"],
   "exclude": ["node_modules"],
-
-  // if using ts-node
+  "resolveJsonModule": true,
+  "esModuleInterop": true,
   "ts-node": {
     "esm": true
   }

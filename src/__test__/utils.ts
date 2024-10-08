@@ -1,11 +1,17 @@
 import request from 'supertest'
 import { app } from '../app.js'
 
-async function sendPostRequest(payload: any) {
-  return await request(app) // listens on port 0 (first available one it finds)
-    .post('/')
+async function sendPostRequest(path: string, payload: any) {
+  return await request(app)
+    .post(path)
     // .set('Authorization', getBasicAuthHeader(ENV.CHARGEBEE_USERNAME, ENV.CHARGEBEE_PASSWORD))
     .send(payload)
+}
+
+async function sendGetRequest(path: string) {
+  return await request(app)
+    // .set('Authorization', getBasicAuthHeader(ENV.CHARGEBEE_USERNAME, ENV.CHARGEBEE_PASSWORD))
+    .get(path)
 }
 
 /*
@@ -16,4 +22,4 @@ function getBasicAuthHeader(username: string, password: string): string {
 }
 */
 
-export { sendPostRequest }
+export { sendGetRequest, sendPostRequest }
