@@ -1,9 +1,12 @@
 import type { JestConfigWithTsJest } from 'ts-jest'
+import { pathsToModuleNameMapper } from 'ts-jest'
+import tsconfig from './tsconfig.json'
 
 const jestConfig: JestConfigWithTsJest = {
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1', // @ -> src
-    '^(\\.{1,2}/.*)\\.js$': '$1', // remove .js extension
+    ...pathsToModuleNameMapper(tsconfig.compilerOptions.paths, {
+      prefix: '<rootDir>',
+    }),
   },
   extensionsToTreatAsEsm: ['.ts'],
   transform: {
@@ -17,7 +20,7 @@ const jestConfig: JestConfigWithTsJest = {
   resolver: 'ts-jest-resolver',
   verbose: true,
   testTimeout: 30000,
-  moduleDirectories: ['node_modules', '<rootDir>'],
+  // moduleDirectories: ['node_modules', '<rootDir>'],
 }
 
 export default jestConfig

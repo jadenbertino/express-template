@@ -37,13 +37,13 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@test/*": ["src/__test__/*"]
     },
-    "types": ["@types/jest"]
+    "resolveJsonModule": true
   },
   "include": ["src"],
   "exclude": ["node_modules"],
-  "resolveJsonModule": true,
   "esModuleInterop": true,
   "ts-node": {
     "esm": true
