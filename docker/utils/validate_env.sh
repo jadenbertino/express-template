@@ -10,7 +10,7 @@ fi
 # Validate that ENVIRONMENT is 'production', 'staging', 'testing', or 'development'
 case "$ENVIRONMENT" in
   "production"|"staging"|"testing"|"development")
-    # echo "ENVIRONMENT is set to a valid value: $ENVIRONMENT"
+    echo "ENVIRONMENT: $ENVIRONMENT"
     ;;
   *)
     echo "Error: ENVIRONMENT is set to an invalid value: $ENVIRONMENT"

@@ -3,7 +3,6 @@ set -e
 
 # Load environment variables
 sh ./docker/utils/validate_env.sh
-. ./docker/utils/get_version.sh
 . ./docker/config.sh
 . ./env/.env.$ENVIRONMENT
 

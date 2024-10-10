@@ -13,6 +13,7 @@ npx tsc-alias
 # Dockerize
 npmrc_file_path="$HOME/.npmrc"
 . ./docker/config.sh
+echo "Building image: $DOCKER_TAG"
 docker build \
   -t $DOCKER_TAG \
   --secret id=npmrc,src=$npmrc_file_path \
