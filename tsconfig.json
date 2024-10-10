@@ -35,10 +35,9 @@
     "rootDir": "./src",
     "jsx": "react-jsx",
     "skipLibCheck": true,
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@test/*": ["src/__test__/*"]
+      "@/*": ["./src/*"],
+      "@test/*": ["./src/__test__/*"]
     },
     "resolveJsonModule": true
   },
