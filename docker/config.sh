@@ -1,6 +1,12 @@
 . ./docker/utils/get_version.sh
 
 export SERVICE_NAME=PLZ-SET-SERVICE-NAME
+export GCP_DOCKER_TAG=us-central1-docker.pkg.dev/ai-video-creation/$SERVICE_NAME/$VERSION
+export AZ_DOCKER_TAG=ossauswest3.azurecr.io/$SERVICE_NAME:$VERSION
+
+# Set to AZ_DOCKER_TAG or GCP_DOCKER_TAG
+# This is used for the docker build command
+export DOCKER_TAG='PLZ-SET-DOCKER-TAG'
 
 # TODO: Delete this once SERVICE_NAME is set
 # Check if the service name has been set properly
@@ -9,8 +15,9 @@ if [ "$SERVICE_NAME" = "PLZ-SET-SERVICE-NAME" ]; then
     exit 1
 fi
 
-# for gcloud
-export DOCKER_TAG=us-central1-docker.pkg.dev/ai-video-creation/$SERVICE_NAME/$VERSION
-
-# for azure
-export DOCKER_TAG=ossauswest3.azurecr.io/$SERVICE_NAME:$VERSION
+# TODO: Delete this once DOCKER_TAG is set
+# Check if the docker tag has been set properly
+if [ "$DOCKER_TAG" = "PLZ-SET-DOCKER-TAG" ]; then
+    echo "Error: DOCKER_TAG is set to the default vaule. Please update it in docker/config.sh before continuing."
+    exit 1
+fi

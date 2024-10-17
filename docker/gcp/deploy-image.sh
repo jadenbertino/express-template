@@ -17,6 +17,6 @@ gcloud auth configure-docker us-central1-docker.pkg.dev
 gcloud artifacts repositories create $SERVICE_NAME --repository-format=docker --location=us-central1
 
 # Push the image to the artifact registry
-echo "Pushing: $DOCKER_TAG"
-docker push $DOCKER_TAG
-echo "Pushed: $DOCKER_TAG"
+echo "Pushing: $GCP_DOCKER_TAG"
+docker push $GCP_DOCKER_TAG
+echo "Pushed: $GCP_DOCKER_TAG"

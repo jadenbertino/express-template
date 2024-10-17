@@ -10,7 +10,7 @@ sh ./docker/utils/validate_env.sh
 # npm run test
 
 # Push Docker Image To Registry
-echo "Pushing: $DOCKER_TAG"
+echo "Pushing: $AZ_DOCKER_TAG"
 az acr login --name ossauswest3
-docker push $DOCKER_TAG
-echo "Pushed: $DOCKER_TAG"
+docker push $AZ_DOCKER_TAG
+echo "Pushed: $AZ_DOCKER_TAG"
