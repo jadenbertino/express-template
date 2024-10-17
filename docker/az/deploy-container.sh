@@ -13,5 +13,5 @@ echo "Updating container app: $CONTAINER_APP_NAME"
 az containerapp update \
   --name $CONTAINER_APP_NAME \
   --resource-group $ENVIRONMENT \
-  --image $DOCKER_TAG \
+  --image $AZ_DOCKER_TAG \
   --set-env-vars DOPPLER_TOKEN=$DOPPLER_TOKEN ENVIRONMENT=$ENVIRONMENT VERSION=$VERSION REVISION_TIMESTAMP=$(date +%s)
