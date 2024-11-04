@@ -10,13 +10,17 @@ rm -rf ./dist
 npx tsc
 npx tsc-alias
 
-# Dockerize
-npmrc_file_path="$HOME/.npmrc"
+# Set Build Config
 . ./docker/config.sh
+if [ -z "$NPMRC_FILE_PATH" ]; then
+  NPMRC_FILE_PATH="$HOME/.npmrc"
+fi
+
+# Build Docker Image
 echo "Building image: $DOCKER_TAG"
 docker build \
   -t $DOCKER_TAG \
-  --secret id=npmrc,src=$npmrc_file_path \
+  --secret id=npmrc,src=$NPMRC_FILE_PATH \
   .
 echo ""
 echo "Built image: $DOCKER_TAG"
