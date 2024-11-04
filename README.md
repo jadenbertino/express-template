@@ -9,7 +9,7 @@ rm main.zip
 
 Note: If you don't have `unzip` then do `sudo apt-get update && sudo apt-get install unzip`
 
-- `package.json` > set the `deploy` script to run `deploy-azure.sh` or `deploy-gcloud.sh` depending on what platform you are deploying to
+- `docker/deploy.sh` > set deploy scripts to use `az` or `gcp` depending on your preference
 
 - `docker/config.sh` > set the `SERVICE_NAME` & `DOCKER_TAG`
 

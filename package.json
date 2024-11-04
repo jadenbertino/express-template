@@ -11,7 +11,7 @@
     "build": "bash ./docker/build.sh",
     "container": "bash ./docker/container.sh",
     "test": "bash ./docker/test.sh",
-    "deploy": "npm run deploy:image && npm run deploy:container",
+    "deploy": "bash ./docker/deploy.sh",
     "deploy:image": "bash ./docker/az/deploy-image.sh",
     "deploy:container": "bash ./docker/az/deploy-container.sh"
   },
