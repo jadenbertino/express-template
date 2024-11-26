@@ -9,10 +9,11 @@ RUN apt-get update && apt-get install -y apt-transport-https ca-certificates cur
     apt-get -y install doppler
 
 # Install packages
-COPY package.json package-lock.json CHANGELOG.md ./
+COPY package.json package-lock.json ./
 RUN --mount=type=secret,id=npmrc,target=/root/.npmrc npm ci
 
 # Copy source code
+COPY CHANGELOG.md ./
 COPY ./docker ./docker/
 RUN chmod -R +x ./docker
 COPY dist/ dist/
